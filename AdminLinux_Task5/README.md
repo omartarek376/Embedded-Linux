@@ -1,4 +1,4 @@
-# Explanation
+![Screenshot from 2023-12-11 09-49-30](https://github.com/omartarek376/Embedded-Linux/assets/111865747/871cc23f-a6c9-465e-ad3a-d83bb9587a8d)# Explanation
 
 ### 1)
 cd
@@ -59,3 +59,14 @@ users won't be able to access its contents or navigate into it, even if they hav
 4) chmod o=rwxt dir
 
 5) it won't allow me to modify these files due to the sticky bit
+
+6 & 7) 
+
+![Screenshot from 2023-12-11 09-49-30](https://github.com/omartarek376/Embedded-Linux/assets/111865747/f156329a-ec44-4b7a-b4dd-723ecc0ff41e)
+
+### Extra Extra
+
+![Screenshot from 2023-12-11 09-53-01](https://github.com/omartarek376/Embedded-Linux/assets/111865747/44ddede1-25bd-4ff4-9fb7-def7ffa3463a)
+
+it has the s to allow the users to freely change their own passwords with the need for root privileges.
+
