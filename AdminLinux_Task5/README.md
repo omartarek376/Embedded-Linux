@@ -47,3 +47,15 @@ For files, the "x" permission allows a user to execute the file if it is an exec
 
 For directories, the "x" permission has a different meaning. Without the "x" permission, 
 users won't be able to access its contents or navigate into it, even if they have read ("r") permission on the directory.
+
+### Extra
+
+1) chmod o+t dir
+
+2) chmod g+s dir
+
+3) sudo adduser fady
+
+4) chmod o=rwxt dir
+
+5) it won't allow me to modify these files due to the sticky bit
