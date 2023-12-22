@@ -5,6 +5,10 @@
 
 DIO_enumOptions_t DIO_Pin_Cfg[PINS_PER_PORT * NUM_PORTS] = 
 {
+	DIO_enumOutputLow,
+	DIO_enumOutputLow,
+	DIO_enumOutputLow,
+	DIO_enumOutputLow,
 	DIO_enumInput_HI,
 	DIO_enumInput_HI,
 	DIO_enumInput_HI,
@@ -13,11 +17,7 @@ DIO_enumOptions_t DIO_Pin_Cfg[PINS_PER_PORT * NUM_PORTS] =
 	DIO_enumInput_HI,
 	DIO_enumInput_HI,
 	DIO_enumInput_HI,
-	DIO_enumInput_HI,
-	DIO_enumInput_HI,
-	DIO_enumInput_HI,
-	DIO_enumInput_HI,
-	DIO_enumInput_HI,
+	DIO_enumInput_PU,
 	DIO_enumInput_HI,
 	DIO_enumInput_HI,
 	DIO_enumInput_HI,
