@@ -20,9 +20,9 @@ target_include_directories(mcal PUBLIC Include)
 # Main executable
 add_executable(Driver_Test.elf main.c)
 
-# Link the static library to the executable
-target_link_libraries(Driver_Test.elf mcal)
-
 # Here i specify the mmcu flag so that the output file works on my hardware
 target_compile_options(Driver_Test.elf PRIVATE -mmcu=atmega32)
+
+# Link the static library to the executable
+target_link_libraries(Driver_Test.elf mcal)
 
