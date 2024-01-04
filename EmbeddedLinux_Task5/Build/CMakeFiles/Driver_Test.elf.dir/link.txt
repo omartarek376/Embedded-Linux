@@ -1,0 +1,1 @@
+/home/omar/x-tools/avr/bin/avr-gcc CMakeFiles/Driver_Test.elf.dir/main.c.o -o Driver_Test.elf  libmcal.a 
