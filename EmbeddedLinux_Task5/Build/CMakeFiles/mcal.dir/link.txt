@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmcal.a CMakeFiles/mcal.dir/PORT.c.o CMakeFiles/mcal.dir/DIO.c.o CMakeFiles/mcal.dir/PORT_Config.c.o
-/usr/bin/ranlib libmcal.a

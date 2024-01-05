@@ -1,4 +1,4 @@
-/home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles/mcal.dir
-/home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles/Driver_Test.elf.dir
+/home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles/calc.dir
+/home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles/calc_bin.dir
 /home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles/edit_cache.dir
 /home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles/rebuild_cache.dir

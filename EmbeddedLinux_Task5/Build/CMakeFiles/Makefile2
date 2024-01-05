@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/mcal.dir/all
-all: CMakeFiles/Driver_Test.elf.dir/all
+all: CMakeFiles/calc.dir/all
+all: CMakeFiles/calc_bin.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,61 +72,61 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/mcal.dir/clean
-clean: CMakeFiles/Driver_Test.elf.dir/clean
+clean: CMakeFiles/calc.dir/clean
+clean: CMakeFiles/calc_bin.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/mcal.dir
+# Target rules for target CMakeFiles/calc.dir
 
 # All Build rule for target.
-CMakeFiles/mcal.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles --progress-num=3,4,5,6 "Built target mcal"
-.PHONY : CMakeFiles/mcal.dir/all
+CMakeFiles/calc.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target calc"
+.PHONY : CMakeFiles/calc.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/mcal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mcal.dir/all
+CMakeFiles/calc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/calc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles 0
-.PHONY : CMakeFiles/mcal.dir/rule
+.PHONY : CMakeFiles/calc.dir/rule
 
 # Convenience name for target.
-mcal: CMakeFiles/mcal.dir/rule
-.PHONY : mcal
+calc: CMakeFiles/calc.dir/rule
+.PHONY : calc
 
 # clean rule for target.
-CMakeFiles/mcal.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/clean
-.PHONY : CMakeFiles/mcal.dir/clean
+CMakeFiles/calc.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/clean
+.PHONY : CMakeFiles/calc.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Driver_Test.elf.dir
+# Target rules for target CMakeFiles/calc_bin.dir
 
 # All Build rule for target.
-CMakeFiles/Driver_Test.elf.dir/all: CMakeFiles/mcal.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Driver_Test.elf.dir/build.make CMakeFiles/Driver_Test.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Driver_Test.elf.dir/build.make CMakeFiles/Driver_Test.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles --progress-num=1,2 "Built target Driver_Test.elf"
-.PHONY : CMakeFiles/Driver_Test.elf.dir/all
+CMakeFiles/calc_bin.dir/all: CMakeFiles/calc.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc_bin.dir/build.make CMakeFiles/calc_bin.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc_bin.dir/build.make CMakeFiles/calc_bin.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles --progress-num=7,8 "Built target calc_bin"
+.PHONY : CMakeFiles/calc_bin.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Driver_Test.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Driver_Test.elf.dir/all
+CMakeFiles/calc_bin.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/calc_bin.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/omar/Documents/GitHub/Embedded-Linux/EmbeddedLinux_Task5/Build/CMakeFiles 0
-.PHONY : CMakeFiles/Driver_Test.elf.dir/rule
+.PHONY : CMakeFiles/calc_bin.dir/rule
 
 # Convenience name for target.
-Driver_Test.elf: CMakeFiles/Driver_Test.elf.dir/rule
-.PHONY : Driver_Test.elf
+calc_bin: CMakeFiles/calc_bin.dir/rule
+.PHONY : calc_bin
 
 # clean rule for target.
-CMakeFiles/Driver_Test.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Driver_Test.elf.dir/build.make CMakeFiles/Driver_Test.elf.dir/clean
-.PHONY : CMakeFiles/Driver_Test.elf.dir/clean
+CMakeFiles/calc_bin.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc_bin.dir/build.make CMakeFiles/calc_bin.dir/clean
+.PHONY : CMakeFiles/calc_bin.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

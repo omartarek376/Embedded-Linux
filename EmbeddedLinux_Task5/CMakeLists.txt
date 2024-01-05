@@ -1,28 +1,30 @@
 cmake_minimum_required(VERSION 3.10)
-project(Driver)
+project(Calculator)
 
-# Here i tell cmake where the avr-gcc compiler is
-set(CMAKE_C_COMPILER /home/omar/x-tools/avr/bin/avr-gcc)
-
-
-include_directories(Include)
+include_directories(includes)
 
 set(SOURCE_FILES
-    PORT.c
-    DIO.c
-    PORT_Config.c
+    add.c
+    subtract.c
+    multiply.c
+    divide.c
+    modulus.c
 )
 
 # Creating the static library
-add_library(mcal STATIC ${SOURCE_FILES})
-target_include_directories(mcal PUBLIC Include)
+add_library(calc STATIC ${SOURCE_FILES})
+target_include_directories(calc PUBLIC Include)
 
 # Main executable
-add_executable(Driver_Test.elf main.c)
-
-# Here i specify the mmcu flag so that the output file works on my hardware
-target_compile_options(Driver_Test.elf PRIVATE -mmcu=atmega32)
+add_executable(calc_bin main.c)
 
 # Link the static library to the executable
-target_link_libraries(Driver_Test.elf mcal)
+target_link_libraries(calc_bin PRIVATE calc)
+
+set_target_properties(calc_bin PROPERTIES
+    INTERFACE_LINK_OPTIONS "-static-libgcc;-static-libstdc++;-static"
+)
+
+
+
 

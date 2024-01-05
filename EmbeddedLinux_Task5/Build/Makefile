@@ -117,109 +117,85 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named mcal
+# Target rules for targets named calc
 
 # Build rule for target.
-mcal: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mcal
-.PHONY : mcal
+calc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 calc
+.PHONY : calc
 
 # fast build rule for target.
-mcal/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/build
-.PHONY : mcal/fast
+calc/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/build
+.PHONY : calc/fast
 
 #=============================================================================
-# Target rules for targets named Driver_Test.elf
+# Target rules for targets named calc_bin
 
 # Build rule for target.
-Driver_Test.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Driver_Test.elf
-.PHONY : Driver_Test.elf
+calc_bin: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 calc_bin
+.PHONY : calc_bin
 
 # fast build rule for target.
-Driver_Test.elf/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Driver_Test.elf.dir/build.make CMakeFiles/Driver_Test.elf.dir/build
-.PHONY : Driver_Test.elf/fast
+calc_bin/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc_bin.dir/build.make CMakeFiles/calc_bin.dir/build
+.PHONY : calc_bin/fast
 
-DIO.o: DIO.c.o
-.PHONY : DIO.o
-
-# target to build an object file
-DIO.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/DIO.c.o
-.PHONY : DIO.c.o
-
-DIO.i: DIO.c.i
-.PHONY : DIO.i
-
-# target to preprocess a source file
-DIO.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/DIO.c.i
-.PHONY : DIO.c.i
-
-DIO.s: DIO.c.s
-.PHONY : DIO.s
-
-# target to generate assembly for a file
-DIO.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/DIO.c.s
-.PHONY : DIO.c.s
-
-PORT.o: PORT.c.o
-.PHONY : PORT.o
+add.o: add.c.o
+.PHONY : add.o
 
 # target to build an object file
-PORT.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/PORT.c.o
-.PHONY : PORT.c.o
+add.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/add.c.o
+.PHONY : add.c.o
 
-PORT.i: PORT.c.i
-.PHONY : PORT.i
+add.i: add.c.i
+.PHONY : add.i
 
 # target to preprocess a source file
-PORT.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/PORT.c.i
-.PHONY : PORT.c.i
+add.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/add.c.i
+.PHONY : add.c.i
 
-PORT.s: PORT.c.s
-.PHONY : PORT.s
+add.s: add.c.s
+.PHONY : add.s
 
 # target to generate assembly for a file
-PORT.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/PORT.c.s
-.PHONY : PORT.c.s
+add.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/add.c.s
+.PHONY : add.c.s
 
-PORT_Config.o: PORT_Config.c.o
-.PHONY : PORT_Config.o
+divide.o: divide.c.o
+.PHONY : divide.o
 
 # target to build an object file
-PORT_Config.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/PORT_Config.c.o
-.PHONY : PORT_Config.c.o
+divide.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/divide.c.o
+.PHONY : divide.c.o
 
-PORT_Config.i: PORT_Config.c.i
-.PHONY : PORT_Config.i
+divide.i: divide.c.i
+.PHONY : divide.i
 
 # target to preprocess a source file
-PORT_Config.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/PORT_Config.c.i
-.PHONY : PORT_Config.c.i
+divide.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/divide.c.i
+.PHONY : divide.c.i
 
-PORT_Config.s: PORT_Config.c.s
-.PHONY : PORT_Config.s
+divide.s: divide.c.s
+.PHONY : divide.s
 
 # target to generate assembly for a file
-PORT_Config.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcal.dir/build.make CMakeFiles/mcal.dir/PORT_Config.c.s
-.PHONY : PORT_Config.c.s
+divide.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/divide.c.s
+.PHONY : divide.c.s
 
 main.o: main.c.o
 .PHONY : main.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Driver_Test.elf.dir/build.make CMakeFiles/Driver_Test.elf.dir/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc_bin.dir/build.make CMakeFiles/calc_bin.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -227,7 +203,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Driver_Test.elf.dir/build.make CMakeFiles/Driver_Test.elf.dir/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc_bin.dir/build.make CMakeFiles/calc_bin.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -235,8 +211,80 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Driver_Test.elf.dir/build.make CMakeFiles/Driver_Test.elf.dir/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc_bin.dir/build.make CMakeFiles/calc_bin.dir/main.c.s
 .PHONY : main.c.s
+
+modulus.o: modulus.c.o
+.PHONY : modulus.o
+
+# target to build an object file
+modulus.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/modulus.c.o
+.PHONY : modulus.c.o
+
+modulus.i: modulus.c.i
+.PHONY : modulus.i
+
+# target to preprocess a source file
+modulus.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/modulus.c.i
+.PHONY : modulus.c.i
+
+modulus.s: modulus.c.s
+.PHONY : modulus.s
+
+# target to generate assembly for a file
+modulus.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/modulus.c.s
+.PHONY : modulus.c.s
+
+multiply.o: multiply.c.o
+.PHONY : multiply.o
+
+# target to build an object file
+multiply.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/multiply.c.o
+.PHONY : multiply.c.o
+
+multiply.i: multiply.c.i
+.PHONY : multiply.i
+
+# target to preprocess a source file
+multiply.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/multiply.c.i
+.PHONY : multiply.c.i
+
+multiply.s: multiply.c.s
+.PHONY : multiply.s
+
+# target to generate assembly for a file
+multiply.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/multiply.c.s
+.PHONY : multiply.c.s
+
+subtract.o: subtract.c.o
+.PHONY : subtract.o
+
+# target to build an object file
+subtract.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/subtract.c.o
+.PHONY : subtract.c.o
+
+subtract.i: subtract.c.i
+.PHONY : subtract.i
+
+# target to preprocess a source file
+subtract.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/subtract.c.i
+.PHONY : subtract.c.i
+
+subtract.s: subtract.c.s
+.PHONY : subtract.s
+
+# target to generate assembly for a file
+subtract.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/calc.dir/build.make CMakeFiles/calc.dir/subtract.c.s
+.PHONY : subtract.c.s
 
 # Help Target
 help:
@@ -246,20 +294,26 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Driver_Test.elf"
-	@echo "... mcal"
-	@echo "... DIO.o"
-	@echo "... DIO.i"
-	@echo "... DIO.s"
-	@echo "... PORT.o"
-	@echo "... PORT.i"
-	@echo "... PORT.s"
-	@echo "... PORT_Config.o"
-	@echo "... PORT_Config.i"
-	@echo "... PORT_Config.s"
+	@echo "... calc"
+	@echo "... calc_bin"
+	@echo "... add.o"
+	@echo "... add.i"
+	@echo "... add.s"
+	@echo "... divide.o"
+	@echo "... divide.i"
+	@echo "... divide.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... modulus.o"
+	@echo "... modulus.i"
+	@echo "... modulus.s"
+	@echo "... multiply.o"
+	@echo "... multiply.i"
+	@echo "... multiply.s"
+	@echo "... subtract.o"
+	@echo "... subtract.i"
+	@echo "... subtract.s"
 .PHONY : help
 
 
