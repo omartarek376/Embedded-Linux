@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcalc.a CMakeFiles/calc.dir/add.c.o CMakeFiles/calc.dir/subtract.c.o CMakeFiles/calc.dir/multiply.c.o CMakeFiles/calc.dir/divide.c.o CMakeFiles/calc.dir/modulus.c.o
+/usr/bin/ranlib libcalc.a

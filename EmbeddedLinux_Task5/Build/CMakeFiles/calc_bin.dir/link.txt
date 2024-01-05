@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/calc_bin.dir/main.c.o -o calc_bin  libcalc.a 
