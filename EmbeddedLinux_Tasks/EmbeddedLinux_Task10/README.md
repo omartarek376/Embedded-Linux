@@ -1,62 +1,55 @@
 # Explanation
 
-### First i cloned the linux repo (latest version only) using the following command:
+## First i configured the bootargs i u-boot as follows:
 
 ```
-git clone --depth=1 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+setenv bootargs 'console=ttyo0 console=ttyAMA0,115200 root=/dev/mmcblk0p2 rw rootwait init=/sbin/init'
 ```
 
-### Afterwards i configured the kernel to vxpress using the following command (when i tried it without specifying the ARCH it gave me an error):
+### the ttyAMA0 is optional if you want to see the u-boot aunching the kernel in full detail, otherwise set it as follows:
 
 ```
-make ARCH=arm vexpress_defconfig
+setenv bootargs 'console=ttyo0,115200 root=/dev/mmcblk0p2 rw rootwait init=/sbin/init'
 ```
 
-### Afterwards i configured the kernel as requested:
+## Afterwards i cloned busybox and configured it once for static and once for dynamic (for simpicity i will explain in detail the dynamic one and will point out the differences as i go along)
 
-![Screenshot from 2024-01-20 12-17-34](https://github.com/omartarek376/Embedded-Linux/assets/111865747/1e10b648-3f3d-436a-b4d6-e569402f55b7)
+![Screenshot from 2024-01-28 14-09-05](https://github.com/omartarek376/Embedded-Linux/assets/111865747/fa994db7-7c8b-4e5f-bd7e-6b2ab86cfe16)
 
-![Screenshot from 2024-01-20 12-17-43](https://github.com/omartarek376/Embedded-Linux/assets/111865747/570cae8c-3063-4d3f-80b7-03992fbdee0b)
+if you are working on dynamic you don't need to cinfigure anything just build busybox as is.
 
-### Then i configured the compiler for arm:
+## Afterwards i created a file nammed rootfsD (dynamic) and copied the generated files in the _install directory in busybox after generation
 
-```
-export CROSS_COMPILE=~/x-tools/arm-cortexa9_neon-linux-musleabihf/bin/arm-cortexa9_neon-linux-musleabihf-
-```
+## Then i copied the libraries needed from the sysrood directory (created by using crosstool-ng) to rootfsD using the rsync command
 
-### I also configured the architecture:
+## Then i created some directories that i will need during this process (sys, proc, etc, dev)
 
-```
-export ARCH=arm
-```
-
-
-### Finally i built the kernel using the following command:
+## Inside etc i created the init.d directory (which has the rcS and rcK inside) and the inittab script which contains the following code:
 
 ```
-make -j12 zImage modules dtbs
+::sysinit:/etc/init.d/rcS
+ttyAMA0::askfirst:-/bin/sh
+::restart:/sbin/init
 ```
 
-Note: you will see a lot of configurations you can add to the kernel (ALOT!!!) so just keep holding down the enter key to skip it all
-
-
-### During the build process you might encounter some missing libraries here are the ones that were missing from me:
+## Then i opened the rcS and configured it as follows (PLEASE DON"T FORGET TO MAKE IT AND THE rcK AN EXECUTABLE USING CHMOD)
 
 ```
-sudo apt-get install libgmp-dev
-```
+#!/bin/sh
+
+echo Hello Darkness My Old Friend
+
+mount -t proc nodev /proc
+
+mount -t sysfs nodev /sys
 
 ```
-sudo apt-get install libmpc-dev
-```
 
-### After creating the image and .dtb file i copied them to the virtual sd card to get loaded on qemu (i got lazy and didn't want to reconfigure tftp :p)
+## Then i changed the ownership of the entire rootfsD to root:root using the chown command
 
-Note: I needed to modify the commands that were inside the bootcmd command as the new files had different names than what i originally configured 
+## Finally i copied the rootfsD to the SD-card (rootfs partition and ran QEMU):
 
-### AND FINALLY (for real this time) i loaded qemu and got to the part where the kernel got loaded but it panicked ;)
+![Screenshot from 2024-01-29 14-17-25](https://github.com/omartarek376/Embedded-Linux/assets/111865747/731f51e2-bf7d-4fc0-adae-b17136e66c71)
 
-![Screenshot from 2024-01-20 12-24-31](https://github.com/omartarek376/Embedded-Linux/assets/111865747/a6f96fb8-edf2-4318-a157-a9638a577a56)
-
-
+## The steps for the static version is the same except for copying the sysroot from crosstool-ng.
 
