@@ -1,55 +1,80 @@
 # Explanation
 
-## First i configured the bootargs i u-boot as follows:
+## For anyone interested:
 
-```
-setenv bootargs 'console=ttyo0 console=ttyAMA0,115200 root=/dev/mmcblk0p2 rw rootwait init=/sbin/init'
-```
+The qemu-ifup file that we created in the tftp task is vital in this task aswell. and for those who don't know it functionality it creates sort of a netowrk interface on your pc (as if you are connected to a router and you gave yourself the ip address that you desire) it also allows us to ping other ip addresses with the same sub net (192.168.0.xxx in my case) so for clarification i will show in details the steps that i took.
 
-### the ttyAMA0 is optional if you want to see the u-boot aunching the kernel in full detail, otherwise set it as follows:
-
-```
-setenv bootargs 'console=ttyo0,115200 root=/dev/mmcblk0p2 rw rootwait init=/sbin/init'
-```
-
-## Afterwards i cloned busybox and configured it once for static and once for dynamic (for simpicity i will explain in detail the dynamic one and will point out the differences as i go along)
-
-![Screenshot from 2024-01-28 14-09-05](https://github.com/omartarek376/Embedded-Linux/assets/111865747/fa994db7-7c8b-4e5f-bd7e-6b2ab86cfe16)
-
-if you are working on dynamic you don't need to cinfigure anything just build busybox as is.
-
-## Afterwards i created a file nammed rootfsD (dynamic) and copied the generated files in the _install directory in busybox after generation
-
-## Then i copied the libraries needed from the sysrood directory (created by using crosstool-ng) to rootfsD using the rsync command
-
-## Then i created some directories that i will need during this process (sys, proc, etc, dev)
-
-## Inside etc i created the init.d directory (which has the rcS and rcK inside) and the inittab script which contains the following code:
-
-```
-::sysinit:/etc/init.d/rcS
-ttyAMA0::askfirst:-/bin/sh
-::restart:/sbin/init
-```
-
-## Then i opened the rcS and configured it as follows (PLEASE DON"T FORGET TO MAKE IT AND THE rcK AN EXECUTABLE USING CHMOD)
+## First i modified the qemu-ifup to be as follows:
 
 ```
 #!/bin/sh
-
-echo Hello Darkness My Old Friend
-
-mount -t proc nodev /proc
-
-mount -t sysfs nodev /sys
-
+ip a add 192.168.0.67/24 dev $1
+ip link set $1 up
 ```
 
-## Then i changed the ownership of the entire rootfsD to root:root using the chown command
+you can change the 67 to what ever you desire and this will be your pc's ip address
 
-## Finally i copied the rootfsD to the SD-card (rootfs partition and ran QEMU):
+## Afterwards i install nfs-server using the following command:
 
-![Screenshot from 2024-01-29 14-17-25](https://github.com/omartarek376/Embedded-Linux/assets/111865747/731f51e2-bf7d-4fc0-adae-b17136e66c71)
+```
+sudo apt install nfs-kernel-server
+```
 
-## The steps for the static version is the same except for copying the sysroot from crosstool-ng.
+## Then modify the /etc/exports file to be as follows
+
+![image](https://github.com/omartarek376/Embedded-Linux/assets/111865747/15f80c0f-cad1-4369-b53f-857f92883484)
+
+Change the directory from /home/omar/rootfsD to wherever the rootfs that will be mounted using the nfs
+
+Here is the command if you want to copy it:
+
+```
+/home/omar/rootfsD       *(rw,sync,no_root_squash,no_subtree_check)
+```
+
+## Afterwards make nfs reload the file using the following command:
+
+```
+sudo exportfs -r
+```
+
+## Afterwards run QEMU using the following command(change directories depending on where the files are)
+
+```
+sudo qemu-system-arm -M vexpress-a9 -m 128M -nographic -kernel ~/u-boot/u-boot -sd sd.img -net tap,script=./qemu-ifup -net nic
+```
+
+## Cancel the autoboot because we will be modifying some enviroment variables:
+
+```
+setenv ipaddr 192.168.0.13
+```
+
+you can change the 13 to whatever you like
+
+```
+setenv serverip 192.168.0.67
+```
+
+same as the tap script (qemu-ifup file)
+
+```
+setenv bootargs 'console=ttyAMA0  root=/dev/nfs ip=192.168.0.13:::::eth0 nfsroot=192.168.0.67:/home/omar/rootfsD,nfsvers=3,tcp rw init=/sbin/init'
+```
+
+ip same as ipaddr and nfsroot same as serverip and the tap script
+change the directory to where the rootfs is on your system
+
+```
+saveenv
+```
+
+PLEASE save your changes to the enviroment variables
+
+## Finally you can restart QEMU or run bootd and the kernel should open
+
+![image](https://github.com/omartarek376/Embedded-Linux/assets/111865747/89ef892f-4648-40cb-92c9-78dc16ec8740)
+
+i added a NFS file to make sure i loaded the correct rootfs through the nfs and not the one on the sd card :)
+
 
