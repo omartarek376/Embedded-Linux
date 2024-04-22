@@ -1,0 +1,4 @@
+/home/omar/vsomeip/test_example/build/CMakeFiles/service-example.dir
+/home/omar/vsomeip/test_example/build/CMakeFiles/client-example.dir
+/home/omar/vsomeip/test_example/build/CMakeFiles/edit_cache.dir
+/home/omar/vsomeip/test_example/build/CMakeFiles/rebuild_cache.dir
